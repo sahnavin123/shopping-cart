@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Shop from "./pages/Shop";
 import Cart from "./pages/Cart";
@@ -8,16 +8,18 @@ import Home from "./components/Home";
 
 const App = () => {
   return (
-    <div className="App">
-      <ShopContextProvider>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/shop" element={<Shop />} />
-          <Route path="/cart" element={<Cart />} />
-        </Routes>
-      </ShopContextProvider>
-    </div>
+    <HashRouter>
+      <div className="App">
+        <ShopContextProvider>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/shop" element={<Shop />} />
+            <Route path="/cart" element={<Cart />} />
+          </Routes>
+        </ShopContextProvider>
+      </div>
+    </HashRouter>
   );
 };
 
