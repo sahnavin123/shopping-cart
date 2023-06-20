@@ -17,12 +17,15 @@ const Cart = () => {
         <h1>Your Cart Items</h1>
       </div>
       <div className="cartItems">
-        {PRODUCTS.filter((product) => cartItems[product.id] !== 0).map(
-          (product) => (
-            <CartItem key={product.id} data={product} />
-          )
-        )}
+        {PRODUCTS.map((product) => {
+          const quantity = cartItems[product.id] || 0;
+          if (quantity > 0) {
+            return <CartItem key={product.id} data={product} />;
+          }
+          return null;
+        })}
       </div>
+
       {totalAmount > 0 ? (
         <div className="checkout">
           <p>

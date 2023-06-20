@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+import { ShopContext } from "../context/ShopContext";
 import { Link } from "react-router-dom";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import "./navbar.css";
@@ -6,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const navigate = useNavigate();
+  const { cartItems } = useContext(ShopContext);
 
   return (
     <div className="navbar">
@@ -16,6 +18,9 @@ const Navbar = () => {
         <Link to="/">Home</Link>
         <Link to="/shop">Shop</Link>
         <Link to="/cart">
+          {Object.keys(cartItems).length > 0 ? (
+            <p className="cart-size">{Object.keys(cartItems).length}</p>
+          ) : null}
           <AiOutlineShoppingCart size={32} />
         </Link>
       </div>

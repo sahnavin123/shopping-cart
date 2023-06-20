@@ -17,6 +17,7 @@
   margin-right: 50px;
   display: flex;
   align-items: center;
+  position: relative;
 }
 
 .navbar .links a {
@@ -24,4 +25,14 @@
   color: white;
   margin-left: 20px;
   font-size: 25px;
+}
+
+.navbar .cart-size {
+  background-color: rgb(140, 39, 39);
+  padding: 1px 5px;
+  border-radius: 100%;
+  position: absolute;
+  font-size: 15px;
+  bottom: 0.8rem;
+  right: -8px;
 }
